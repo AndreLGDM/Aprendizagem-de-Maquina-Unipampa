@@ -5,7 +5,7 @@ from ultralytics import YOLO
 model = YOLO('C:/Users/201-DTIC/Documents/ultralytics/runs/detect/train5/weights/best.pt')
 
 # Open the video file
-video_path = 0
+video_path = 1
 cap = cv2.VideoCapture(video_path)
 
 # Loop through the video frames
@@ -16,7 +16,7 @@ while cap.isOpened():
     if success:
         # Run YOLOv8 inference on the frame
 
-        results = model.predict(source=frame, conf=0.2)
+        results = model.predict(source=frame, conf=0.8)
 
         # Visualize the results on the frame
         annotated_frame = results[0].plot()
